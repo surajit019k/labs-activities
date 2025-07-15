@@ -1,0 +1,35 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    width:550px;
+}
+p{
+    margin:0px;
+}
+.container>div{
+    width:50%;
+}
+.max-text-area1{
+    max-width:270px;
+    height:400px;
+    background-color:rgb(18, 26, 81);
+    color:rgb(129, 163, 193);
+}
+.max-text-area2{
+    max-width:270px;
+    height:700px;
+    background-color:rgb(18, 26, 81);
+    color:rgb(129, 163, 193);
+}
+.max-text-area3{
+    max-width:270px;
+    height:660px;
+    background-color:rgb(18, 26, 81);
+    color:rgb(129, 163, 193);
+}
+.max-text-area4{
+    max-width:270px;
+    height:2960px;
+    background-color:rgb(18, 26, 81);
+    color:rgb(129, 163, 193);
+}

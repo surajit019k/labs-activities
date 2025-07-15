@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd sem codes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p>OS labs</p>
+        <div class="code-1">
+            <textarea class="max-text-area1" rows="11" cols="40" readonly>&#9734FIFO PAGE REPLACEMENT&#10&#10pages[6],frames[3],infj,flag,pf,ptr;&#10pages[6]={1 3 0 3 5 6}
+n=3 f=3&#10for(i=0;i<f;i++)&#10&nbspframes[i]=-1;&#10for(i=0;i<n;i++)&#10{&#10&nbsp&nbspflag=0;&#10&nbsp&nbspfor(j=0;j<f;j++)&#10&nbsp&nbsp{&nbsp&nbsp&#10&nbsp&nbsp&nbsp&nbspif(frames[j]==pages[i])
+&nbsp&nbsp&nbsp&nbspflag=1;&#10&nbsp&nbsp&nbsp&nbspbreak;&#10&nbsp&nbsp}&#10&nbsp&nbspif(!flag)&#10&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbspframes[ptr]=pages[i];&#10&nbsp&nbsp&nbsp&nbspptr=(ptr+1)%f;
+&nbsp&nbsp&nbsp&nbsppf++;&#10&nbsp&nbsp}&#10&nbsp&nbspprintf("Total page faults:%d",pf);&#10}</textarea>
+        <img src="fifo1.png" alt="loading.." width="277px" height="150px">
+        <img src="fifo2.png" alt="loading.." width="277px" height="150px">
+        </div>
+        <p>Data structures</p>
+        <div class="code-2">
+            <textarea class="max-text-area2" rows="11" cols="40" readonly>STACK&#10&#10#include<stdio.h>&#10#include<conio.h>&#10#include<stdlib.h>&#10#define MAX 6
+int top=0;&#10int stack[MAX];&#10&#10int menu()&#10{...}&#10void push()&#10{&#10&nbsp&nbsp&nbsp&nbspint data;&#10&nbsp&nbsp&nbsp&nbspif(top==MAX)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..stack overflow..}
+&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("\nEnter data:");&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbspscanf("%d",&data);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstack[top]=data;
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptop+=1;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..data pushed..}&#10&nbsp&nbsp&nbsp&nbsp}&#10}&#10void pop()&#10{&#10&nbsp&nbsp&nbsp&nbspif(top==0)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..stack underflow..}
+&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{"popped element:stack[--top]"}&#10}&#10void display()&#10{&#10&nbsp&nbsp&nbsp&nbspint i;&#10&nbsp&nbsp&nbsp&nbspif(top==0)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..empty stack..}
+&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{..loop->stack[i]..}&#10}&#10void main()&#10{...}</textarea>
+        </div>
+        <div class="code-3">
+            <textarea class="max-text-area3" rows="11" cols="40" readonly>QUEUE&#10&#10#include<stdio.h>&#10#include<conio.h>&#10#define MAX 6&#10int Q[MAX];&#10int front,rear;&#10&#10void insertQ()&#10{&#10&nbsp&nbsp&nbsp&nbspint data;
+&nbsp&nbsp&nbsp&nbspif(rear==MAX)&#10&nbsp&nbsp&nbsp&nbsp{..LnrQ is full..}&#10&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("\nEnter data:");&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspscanf("%d",&data);
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspQ[rear]=data;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsprear++;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("\nData inserted");&#10&nbsp&nbsp&nbsp&nbsp}&#10}&#10void deleteQ()
+{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif(rear==front)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..EmptyQ..}&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf(..deleted..);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspfront++;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}&#10}
+void displayQ()&#10{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint i;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif(rear==front)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..EmptyQ..}&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{..loop->Q[i]..}&#10}</textarea>
+        </div>
+        <div class="code-4">
+            <textarea class="max-text-area4" rows="11" cols="40" readonly>Linked List&#10&#10#include<stdio.h>&#10#include<conio.h>&#10#include<stdlib.h>&#10&#10typedef struct slinklist{&#10&nbsp&nbsp&nbsp&nbspint data;
+    struct slinklist *next;&#10}node;&#10&#10int menu()&#10{&#10&nbsp&nbsp&nbsp&nbspint ch;&#10&nbsp&nbsp&nbsp&nbspprintf("\n1.CREATE");&#10&nbsp&nbsp&nbsp&nbspprintf("\n2.INSERT_AT_BEG");&#10&nbsp&nbsp&nbsp&nbspprintf("\n3.INSERT_AT_INTRMDT");
+    printf("\n4.INSERT_AT_END");&#10&nbsp&nbsp&nbsp&nbspprintf("\n5.COUNT_NODE");&#10&nbsp&nbsp&nbsp&nbspprintf("\n6.display");&#10&nbsp&nbsp&nbsp&nbspprintf("\n7.exit");&#10&nbsp&nbsp&nbsp&nbspscanf("%d",&ch);
+    return ch;&#10}&#10&#10node*insert_at_beg(node*start)&#10{&#10&nbsp&nbsp&nbsp&nbspnode*newnode;&#10&nbsp&nbsp&nbsp&nbspnewnode=getnode();&#10&nbsp&nbsp&nbsp&nbspif(start==NULL)&#10&nbsp&nbsp&nbsp&nbsp{
+    &nbsp&nbsp&nbsp&nbspstart=newnode;&#10&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnewnode=>next=start;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstart=newnode;
+    }&#10&nbsp&nbsp&nbsp&nbspreturn start;&#10}&#10&#10node*getnode()&#10{&#10&nbsp&nbsp&nbsp&nbspnewnode=(node*)malloc(sizeof(node));&#10&nbsp&nbsp&nbsp&nbspprintf("\nEnter data:");&#10&nbsp&nbsp&nbsp&nbspscanf("%d",&newnode->data);
+    newnode->next=NULL;&#10&nbsp&nbsp&nbsp&nbspreturn newnode;&#10}&#10&#10node*insert_at_mid(node*start)&#10{&#10&nbsp&nbsp&nbsp&nbspnode*newnode,*prev,*temp;&#10&nbsp&nbsp&nbsp&nbspint pos,nodectr,ctr=1;&#10&nbsp&nbsp&nbsp&nbspnewnode=getnode();
+    printf("\nEnter the position:");&#10&nbsp&nbsp&nbsp&nbspscanf(%d,&pos);&#10&nbsp&nbsp&nbsp&nbspnodectr=count_node(start);&#10&nbsp&nbsp&nbsp&nbspif(pos>1 && pos<nodectr)&#10&nbsp&nbsp&nbsp&nbsp{
+    &nbsp&nbsp&nbsp&nbsptemp=prev=start;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspwhile(ctr<pos)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{&nbsp&nbsp&nbsp&nbsp&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprev=temp;
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=temp->next;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspctr++;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprev->next=newnode;
+    &nbsp&nbsp&nbsp&nbspnewnode->next=temp;&#10&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("not a middle posn");
+    }&#10&nbsp&nbsp&nbsp&nbspreturn start;&#10}&#10&#10void insert_at_end(node*start)&#10{&#10&nbsp&nbsp&nbsp&nbspnode*newnode, *temp;&#10&nbsp&nbsp&nbsp&nbspnewnode=getnode();&#10&nbsp&nbsp&nbsp&nbspi(start==NULL)
+    {&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstart=newnode;&#10&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=start;
+    &nbsp&nbsp&nbsp&nbspwhile(temp->next!=NULL)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=temp->next;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp->next=newnode;&#10&nbsp&nbsp&nbsp&nbsp}
+}&#10&#10node*create_list(intn,node*start)&#10{&#10&nbsp&nbsp&nbsp&nbspint i;&#10&nbsp&nbsp&nbsp&nbspnode*newnode;&#10&nbsp&nbsp&nbsp&nbspnode*temp;&#10&nbsp&nbsp&nbsp&nbspstart=NULL;&#10&nbsp&nbsp&nbsp&nbspfor(i=0;i<n;i++)
+&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnewnode=getnode();&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif(start==NULL)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspstart=newnode;
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspelse&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=start;
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspwhile(temp->next!=NULL)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=temp->next;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp->next=newnode;
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbspreturn start;&#10}&#10&#10void display(node*start)&#10{&#10&nbsp&nbsp&nbsp&nbspnode*temp;&#10&nbsp&nbsp&nbsp&nbsptemp=start;
+&nbsp&nbsp&nbsp&nbspprintf("\nContents:");&#10&nbsp&nbsp&nbsp&nbspwhile(temp!=NULL)&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("%d->",temp->data);}&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptemp=temp->next;&#10&nbsp&nbsp&nbsp&nbsp}
+&nbsp&nbsp&nbsp&nbspprintf("X");&#10}&#10&#10int count(node*ptr)&#10{&#10&nbsp&nbsp&nbsp&nbspint count=0;&#10&nbsp&nbsp&nbsp&nbspwhile(ptr!=NULL)&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcount++;
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspptr=ptr->next;}&#10&nbsp&nbsp&nbsp&nbsp}&#10&nbsp&nbsp&nbsp&nbspreturn count;&#10}&#10&#10void main()&#10{&#10&nbsp&nbsp&nbsp&nbspint ch,t=1,n;
+    int total;&#10&nbsp&nbsp&nbsp&nbspnode*start=NULL;&#10&nbsp&nbsp&nbsp&nbspnode*s;&#10&nbsp&nbsp&nbsp&nbspclrscr();&#10&#10&nbsp&nbsp&nbsp&nbspwhile(t>0)&#10&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspch=menu();
+    &nbsp&nbsp&nbsp&nbspswitch(ch)&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 1:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif(start==NULL)
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("number of nodes:");
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspscanf("%d",&n);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsps=create_list(n,start);
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspprintf("\ndone");&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;
+                }&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 2:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsps=insert_at_beg(s);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;
+            case 3:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsps=insert_at_mid(s);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;
+            case 4:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspinsert_at_end(s);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbreak;
+            case 5:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsptotal=count_node(s);
+                printf("total:%d",total);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 6:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdisplay(s);
+                break;&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcase 7:&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspexit(0);&#10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp}
+    }&#10&nbsp&nbsp&nbsp&nbspgetch();&#10}</textarea>
+        </div>
+        <div class="code-5">
+            <textarea class="max-text-area" rows="11" cols="40" readonly></textarea>
+        </div>
+    </div>
+</body>
+</html>
